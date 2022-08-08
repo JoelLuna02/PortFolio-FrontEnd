@@ -1,0 +1,135 @@
+<nav class="navbar navbar-expand-lg bg-dark fixed-top fuente3">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            <img src="https://argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1659143423/APLogo-20-20.png" height="65px">
+            <img src="https://argentinaprograma.inti.gob.ar/theme/moove/pix/LogosInti.png" height="60px">
+        </a>
+        <button class="navbar-toggler text-white" type="button" data-mdb-toggle="offcanvas" data-mdb-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-grid-1x2-fill"></i>
+        </button>
+        <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="mainmenu" aria-labelledby="etiqueta">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title text-white" id="etiqueta">Más Opciones</h5>
+                <button type="button" class="btn-close btn-close-white" data-mdb-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body p-4 pt-0 p-lg-0">
+
+                <hr class="d-lg-none text-white-50">
+                <ul class="navbar-nav nav-pills flex-row flex-wrap bd-navbar-nav" id="navegar">
+                    <li class="nav-item active col-6 col-lg-auto">
+                        <a class="nav-link py-2 px-0 px-lg-2 text-center" href="#acercade">Acerca de</a>
+                    </li>
+                    <li class="nav-item col-6 col-lg-auto">
+                        <a class="nav-link py-2 px-0 px-lg-2 text-center" href="#experiencia">Experiencia</a>
+                    </li>
+                    <li class="nav-item col-6 col-lg-auto">
+                        <a class="nav-link py-2 px-0 px-lg-2 text-center" href="#educacion">Educación</a>
+                    </li>
+                    <li class="nav-item col-6 col-lg-auto">
+                        <a class="nav-link py-2 px-0 px-lg-2 text-center" href="#skills">Habilidades</a>
+                    </li>
+                    <li class="nav-item col-6 col-lg-auto">
+                        <a class="nav-link py-2 px-0 px-lg-2 text-center" href="#proyectos">Proyectos</a>
+                    </li>
+                </ul>
+
+                <hr class="d-lg-none text-white-50">
+
+                <ul class="navbar-nav flex-row flex-wrap text-white ms-md-auto">
+                    <li class="nav-item col-6 col-lg-auto">
+                        <a class="btn btn-primary btn-floating text-centre m-1 py-2 px-0 px-lg-2" style="background-color: #3b5998" href="#!" role="button">
+                            <i class="fab fa-facebook-f"></i>
+                        </a> <small class="d-lg-none ms-2">Facebook</small>
+                    </li>
+                    <li class="nav-item col-6 col-lg-auto">
+                        <a class="btn btn-primary btn-floating text-centre m-1 py-2 px-0 px-lg-2" style="background-color: #55acee" href="#!" role="button">
+                            <i class="fab fa-twitter"></i>
+                        </a> <small class="d-lg-none ms-2">Twitter</small>
+                    </li>
+                    <li class="nav-item col-6 col-lg-auto">
+                        <a class="btn btn-primary btn-floating text-centre m-1 py-2 px-0 px-lg-2" style="background-color: #ac2bac" href="#!" role="button">
+                            <i class="bi bi-instagram"></i>
+                        </a><small class="d-lg-none ms-2">Instagram</small>
+                    </li>
+                    <li class="nav-item col-6 col-lg-auto">
+                        <a class="btn btn-primary btn-floating text-centre m-1 py-2 px-0 px-lg-2" style="background-color: #333333" href="#!" role="button">
+                            <i class="bi bi-github"></i>
+                        </a><small class="d-lg-none ms-2">GitHub</small>
+                    </li>
+                    <li class="nav-item py-1 col-12 col-lg-auto">
+                        <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+                        <hr class="d-lg-none text-white-50">
+                    </li>
+                </ul>
+
+                <button type="button" class="btn btn-warning text-uppercase btn-rounded btn-lg" 
+                    data-mdb-ripple-color="#ffffff" data-mdb-toggle="modal" 
+                    data-mdb-target="#error">
+                    Iniciar Sesión
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<style>
+    #header {
+        height: 616px;
+    }
+    @media (min-width: 992px) {
+        #header {
+            height: 616px;
+        }
+    }
+</style>
+<div class="modal top fade" id="error" tabindex="-1" 
+    aria-labelledby="titulo" aria-hidden="true" data-mdb-backdrop="true" 
+    data-mdb-keyboard="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fuente2" id="titulo">Error</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body fuente3">
+                Sección no disponible en este momento
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-mdb-dismiss="modal">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="header" class="p-5 text-center bg-image" style="background-image: url('../../../assets/img/wallpaper.jpg');">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px);">
+        <div class="d-flex justify-content-evenly align-items-center h-100">
+            <div class="row" style="padding-left: 5%; top:15%;">
+                <div class="col-md-6">
+                    <div class="text-white container-sm">
+                        <h1 class="mb-3 fuente2 text-lg-start">¡Hola! ¿cómo estás?</h1>
+                        <h4 class="mb-3 fuente2 text-lg-start">Bienvenido a mi PortFolio web</h4>
+                        <h5 class="mb-3 fuente3 text-lg-start text-white">
+                            Por favor toma asiento y relájate, mientras conoces un poco más sobre mi persona.
+                            Sólo tomará unos momentos.
+                        </h5>
+                        <div id="mensaje"></div>
+                        <button type="button" class="btn btn-outline-light btn-rounded btn-lg" 
+                            ata-mdb-ripple-color="#000000" data-mdb-toggle="modal" 
+                            data-mdb-target="#error">
+                            Descargar CV <i class="fas fa-download ms-1"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6">       
+                    <i class="fab fa-react fa-spin fa-9x" style="color: #ffdd00"></i>
+                    <h1 class="mb-3 fuente5 text-white text-centre">
+                        Joel Luna
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>       
+</div>

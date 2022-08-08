@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+.fuente1 {
+    font-family: 'Cabin', sans-serif;
+}
+.fuente2 {
+    font-family: 'Fredoka One', cursive;
+}
+.fuente3 {
+    font-family: 'Jost', sans-serif;
+}
+.fuente4 {
+    font-family: 'Righteous', cursive;
+}
+.fuente5 {
+    font-family: 'Oleo Script Swash Caps', cursive;
+}
+.barra-principal {
+    background-color: #1e1e1e;
+}
