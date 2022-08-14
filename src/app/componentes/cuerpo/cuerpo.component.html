@@ -8,21 +8,16 @@
                     <div class="card text-center">
                         <img src="../../../assets/img/foto.jpg" class="card-img-top">
                         <div class="card-header">
-                            <h4 class="text-uppercase fuente4">Hector Joel Luna</h4>
+                            <h4 class="text-uppercase fuente4">{{ persona.nombre }} {{ persona.apellido }}</h4>
                         </div>
                         <div class="card-body">
-                            <h6 class="fuente3">Desarrollador Web Full Stack</h6>
+                            <h6 class="fuente3">{{ persona.oficio }}</h6>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <br> <h1 class="fuente2">Descripción</h1> <hr>
-                    <p class="fuente3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-                        distinctio earum repellat quaerat voluptatibus placeat nam,
-                        commodi optio pariatur est quia magnam eum harum corrupti dicta,
-                        aliquam sequi voluptate quas.
-                    </p>
+                    <h1 class="fuente2">Descripción</h1> <hr>
+                    <p class="fuente3">{{ persona.descripcion }}</p>
                     <p class="fuente3">
                         <a class="btn btn-primary" data-bs-toggle="collapse" href="#masinfo" role="button" aria-expanded="false" aria-controls="masinfo">
                             Más información <i class="bi bi-caret-down-fill m-3"></i>
@@ -34,19 +29,19 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">Edad</th>
-                                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                        <td>{{ persona.edad }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Correo</th>
-                                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                        <td>{{ persona.email }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Localidad</th>
-                                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                        <td>{{ persona.localidad }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Hobbies</th>
-                                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                        <td>{{ persona.hobbies }}</td>
                                     </tr>
                                 </tbody>
                             </table>

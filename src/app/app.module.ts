@@ -6,17 +6,23 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { CuerpoComponent } from './componentes/cuerpo/cuerpo.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MainComponent } from './componentes/main/main.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CuerpoComponent,
-    FooterComponent
+    FooterComponent,
+    MainComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
