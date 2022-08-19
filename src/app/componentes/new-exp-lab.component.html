@@ -1,0 +1,36 @@
+<div class="modal top fade" tabindex="-1" id="nuevotrabajo" aria-hidden="true">
+    data-mdb-backdrop="true" data-mdb-keyboard="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fuente2" >Nuevo Trabajo</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close" (click)="closeModal({submitted: true})"></button>
+            </div>
+            <form class="fuente3" #f="ngForm" (ngSubmit)="onCreate()" novalidate>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="mb-4">
+                            <input type="text" class="form-control form-control-lg" id="nombreE" name="nombreE"
+                                [(ngModel)]="nombreE" required />
+                            <label class="form-label" for="nombreE">Nombre de la Empresa:</label>
+                        </div>
+                        <div class="mb-4">
+                            <input type="number" class="form-control form-control-lg" id="periodoE" name="periodoE"
+                                [(ngModel)]="periodoE" required />
+                            <label class="form-label" for="periodoE">Periodo</label>
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" class="form-control form-control-lg" id="descripcionE"
+                                name="descripcionE" [(ngModel)]="descripcionE" required />
+                            <label class="form-label" for="descripcionE">Descripción</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning">Crear Experiencia </button>
+                    <button type="button" class="btn btn-danger" data-mdb-dismiss="modal" (click)="closeModal({submitted: true})">cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

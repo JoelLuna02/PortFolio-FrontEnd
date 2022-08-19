@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/servicio/token.service';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,32 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  isLogged = false;
+  autoridad: string[] = [];
+  condicion!: string;
+  usuario!: string;
 
-  ngOnInit(): void { }
+  constructor(private token: TokenService, private router:Router, private auth:TokenService) { }
 
+  ngOnInit(): void {
+    if (this.token.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+    this.autoridad = this.auth.getAuthorities();
+    this.usuario = this.auth.getUserName();
+    if (this.autoridad[1] == 'ROLE_ADMIN'){
+      this.condicion = "Administrador";
+    } else {
+      this.condicion = "Normal";
+    }
+  }
+
+  onLogout(): void {
+    this.token.logOut();
+    window.location.reload();
+  }
   sesion() {
     this.router.navigate(['/login']);
   }

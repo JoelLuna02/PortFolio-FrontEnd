@@ -1,4 +1,4 @@
-export class persona {
+export class persona{
     id?: number;
     nombre: string;
     apellido: string;
@@ -9,13 +9,13 @@ export class persona {
     localidad: string;
     hobbies: string;
 
-    constructor(nom:string, ap:string, offi:string, desc:string, ed:number, mail:string, locate:string, hobbie:string) {
-        this.nombre = nom;
-        this.apellido = ap;
-        this.oficio = offi;
+    constructor(nombre: string,apellido: string,office:string,desc:string,edad:number,email:string,locate:string,hobbie:string){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.oficio = office;
         this.descripcion = desc;
-        this.edad = ed;
-        this.email = mail;
+        this.edad = edad;
+        this.email = email;
         this.localidad = locate;
         this.hobbies = hobbie;
     }

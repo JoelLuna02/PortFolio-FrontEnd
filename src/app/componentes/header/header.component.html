@@ -1,16 +1,19 @@
 <nav class="navbar navbar-expand-lg bg-dark fixed-top fuente3">
     <div class="container-fluid">
         <a class="navbar-brand">
-            <img src="https://argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1659143423/APLogo-20-20.png" height="65px">
+            <img src="https://argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1659143423/APLogo-20-20.png"
+                height="65px">
             <img src="https://argentinaprograma.inti.gob.ar/theme/moove/pix/LogosInti.png" height="60px">
         </a>
-        <button class="navbar-toggler text-white" type="button" data-mdb-toggle="offcanvas" data-mdb-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler text-white" type="button" data-mdb-toggle="offcanvas" data-mdb-target="#mainmenu"
+            aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-grid-1x2-fill"></i>
         </button>
         <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="mainmenu" aria-labelledby="etiqueta">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title text-white" id="etiqueta">Más Opciones</h5>
-                <button type="button" class="btn-close btn-close-white" data-mdb-dismiss="offcanvas" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-mdb-dismiss="offcanvas"
+                    aria-label="Close"></button>
             </div>
             <div class="offcanvas-body p-4 pt-0 p-lg-0">
 
@@ -37,22 +40,26 @@
 
                 <ul class="navbar-nav flex-row flex-wrap text-white ms-md-auto">
                     <li class="nav-item col-6 col-lg-auto">
-                        <a class="btn btn-primary btn-floating text-centre m-1 py-2 px-0 px-lg-2" style="background-color: #3b5998" href="#!" role="button">
+                        <a class="btn btn-primary btn-floating text-centre m-1 py-2 px-0 px-lg-2"
+                            style="background-color: #3b5998" href="#!" role="button">
                             <i class="fab fa-facebook-f"></i>
                         </a> <small class="d-lg-none ms-2">Facebook</small>
                     </li>
                     <li class="nav-item col-6 col-lg-auto">
-                        <a class="btn btn-primary btn-floating text-centre m-1 py-2 px-0 px-lg-2" style="background-color: #55acee" href="#!" role="button">
+                        <a class="btn btn-primary btn-floating text-centre m-1 py-2 px-0 px-lg-2"
+                            style="background-color: #55acee" href="#!" role="button">
                             <i class="fab fa-twitter"></i>
                         </a> <small class="d-lg-none ms-2">Twitter</small>
                     </li>
                     <li class="nav-item col-6 col-lg-auto">
-                        <a class="btn btn-primary btn-floating text-centre m-1 py-2 px-0 px-lg-2" style="background-color: #ac2bac" href="#!" role="button">
+                        <a class="btn btn-primary btn-floating text-centre m-1 py-2 px-0 px-lg-2"
+                            style="background-color: #ac2bac" href="#!" role="button">
                             <i class="bi bi-instagram"></i>
                         </a><small class="d-lg-none ms-2">Instagram</small>
                     </li>
                     <li class="nav-item col-6 col-lg-auto">
-                        <a class="btn btn-primary btn-floating text-centre m-1 py-2 px-0 px-lg-2" style="background-color: #333333" href="#!" role="button">
+                        <a class="btn btn-primary btn-floating text-centre m-1 py-2 px-0 px-lg-2"
+                            style="background-color: #333333" href="#!" role="button">
                             <i class="bi bi-github"></i>
                         </a><small class="d-lg-none ms-2">GitHub</small>
                     </li>
@@ -62,10 +69,25 @@
                     </li>
                 </ul>
 
-                <button type="button" class="btn btn-warning text-uppercase btn-rounded btn-lg" 
-                    data-mdb-ripple-color="#ffffff" data-mdb-toggle="modal" (click)="sesion()">
+                <button type="button" class="btn btn-warning text-uppercase btn-rounded btn-lg"
+                    data-mdb-ripple-color="#ffffff" data-mdb-toggle="modal" (click)="sesion()" *ngIf="!isLogged">
                     Iniciar Sesión
                 </button>
+                <section *ngIf="isLogged">
+                    <div class="drowdown">
+                        <a class="btn btn-primary dropdown-toggle" data-mdb-toggle="dropdown" role="button" id="dropdownMenuButton"
+                            aria-expanded="false" data-bs-display="static">
+                            Sesión iniciada <i class="bi bi-caret-down-fill m-3"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end p-4 text-muted" aria-labelledby="dropdownMenuButton">
+                            <p>Usuario registrado como: {{ usuario }}</p>
+                            <p>Autoridades: {{ condicion }} </p>           
+                            <button type="button" class="btn btn-warning text-uppercase btn-rounded btn-lg"
+                                data-mdb-ripple-color="#ffffff" data-mdb-toggle="modal" (click)="onLogout()"
+                                *ngIf="isLogged"> Cerrar Sesión</button>
+                        </ul>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
@@ -75,15 +97,15 @@
     #header {
         height: 616px;
     }
+
     @media (min-width: 992px) {
         #header {
             height: 616px;
         }
     }
 </style>
-<div class="modal top fade" id="error" tabindex="-1" 
-    aria-labelledby="titulo" aria-hidden="true" data-mdb-backdrop="true" 
-    data-mdb-keyboard="true">
+<div class="modal top fade" id="error" tabindex="-1" aria-labelledby="titulo" aria-hidden="true"
+    data-mdb-backdrop="true" data-mdb-keyboard="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -115,14 +137,13 @@
                             Sólo tomará unos momentos.
                         </h5>
                         <div id="mensaje"></div>
-                        <button type="button" class="btn btn-outline-light btn-rounded btn-lg" 
-                            ata-mdb-ripple-color="#000000" data-mdb-toggle="modal" 
-                            data-mdb-target="#error">
+                        <button type="button" class="btn btn-outline-light btn-rounded btn-lg"
+                            ata-mdb-ripple-color="#000000" data-mdb-toggle="modal" data-mdb-target="#error">
                             Descargar CV <i class="fas fa-download ms-1"></i>
                         </button>
                     </div>
                 </div>
-                <div class="col-md-6">       
+                <div class="col-md-6">
                     <i class="fab fa-react fa-spin fa-9x" style="color: #ffdd00"></i>
                     <h1 class="mb-3 fuente5 text-white text-centre">
                         Joel Luna
@@ -130,5 +151,5 @@
                 </div>
             </div>
         </div>
-    </div>       
+    </div>
 </div>

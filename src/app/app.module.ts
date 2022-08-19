@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { HeaderComponent } from './componentes/header/header.component';
 import { CuerpoComponent } from './componentes/cuerpo/cuerpo.component';
 import { FooterComponent } from './componentes/footer/footer.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './componentes/main/main.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { NewExpLabComponent } from './componentes/new-exp-lab.component';
+
 
 @NgModule({
   declarations: [
@@ -17,12 +20,14 @@ import { LoginComponent } from './componentes/login/login.component';
     CuerpoComponent,
     FooterComponent,
     MainComponent,
-    LoginComponent
+    LoginComponent,
+    NewExpLabComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
