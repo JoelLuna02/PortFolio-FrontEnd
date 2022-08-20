@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './componentes/main/main.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { NewExpLabComponent } from './componentes/new-exp-lab.component';
-
+import { EditExpLabComponent } from './componentes/edit-exp-lab.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { NewExpLabComponent } from './componentes/new-exp-lab.component';
     FooterComponent,
     MainComponent,
     LoginComponent,
-    NewExpLabComponent
+    NewExpLabComponent,
+    EditExpLabComponent
   ],
   imports: [
     BrowserModule,

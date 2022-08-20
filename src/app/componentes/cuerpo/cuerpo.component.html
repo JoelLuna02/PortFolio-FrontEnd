@@ -92,28 +92,33 @@
             <h1 class="fuente2 text-center">Experiencia Laboral</h1>
             <div class="card">
                 <div class="card-body">
+                    <div class="alert alert-danger" id="advertencia" *ngIf="isLogged && isAuth" role="alert">
+                        Recuerda que al eliminar una experiencia laboral, la acción no tiene retorno,
+                        ni tampoco una confirmación. Considera como una advertencia al hacer esto.
+                    </div>
                     <div class="row gx-1">
                         <div class="col-md-12">
                             <table
                                 class="table table-sm table-striped table-hover table-borderless table-light fuente1">
                                 <tbody class="placeholder-glow">
                                     <tr>
-                                        <td>Trabajo</td>
-                                        <td>Periodo</td>
-                                        <td>Descripción</td>
-                                        <td *ngIf="isLogged && isAuth">Editar</td>
-                                        <td *ngIf="isLogged && isAuth">Borrar</td>
+                                        <td><h4 class="fuente1">Trabajo</h4></td>
+                                        <td><h4 class="fuente1">Periodo</h4></td>
+                                        <td><h4 class="fuente1">Descripción</h4></td>
+                                        <td *ngIf="isLogged && isAuth"><h4 class="fuente1">Editar (Doble Clic)</h4></td>
+                                        <td *ngIf="isLogged && isAuth"><h4 class="fuente1">Borrar</h4></td>
                                     </tr>
                                     <tr *ngFor="let Explaboral of experiencia">
                                         <td>{{Explaboral.nombreE}}</td>
                                         <td>{{Explaboral.periodoE}} Año(s)</td>
                                         <td>{{Explaboral.descripcionE}}</td>
-                                        <td *ngIf="isLogged && isAuth"><button type="button" class="btn btn-primary"
+                                        <td *ngIf="isLogged && isAuth" class="text-center">
+                                            <button type="button" class="btn btn-primary btn-floating" [routerLink]="[{outlets: {modal: 'editjob/'+Explaboral.id}}]"
                                                 data-mdb-toggle="modal" data-mdb-target="#edittrabajo">
                                                 <i class="bi bi-pencil-fill"></i>
                                             </button></td>
-                                        <td *ngIf="isLogged && isAuth"><button type="button" class="btn btn-danger"
-                                                data-mdb-toggle="modal" data-mdb-target="#borrartrabajo">
+                                        <td *ngIf="isLogged && isAuth" class="text-center">
+                                            <button type="button" class="btn btn-danger btn-floating" (click)="onDelJob(Explaboral.id)">
                                                 <i class="bi bi-trash-fill"></i>
                                             </button></td>
                                     </tr>
@@ -129,49 +134,7 @@
                             </button>
 
 
-                            <!-- div class="modal top fade" id="edittrabajo/:id" tabindex="-1"
-                                aria-labelledby="edittrabajoLabel" aria-hidden="true" data-mdb-backdrop="true"
-                                data-mdb-keyboard="true">
-                                <div class="modal-dialog modal-lg  modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title fuente2" id="edittrabajoLabel">Editar Trabajo</h5>
-                                            <button type="button" class="btn-close" data-mdb-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <form class="fuente3" #f="ngForm" (ngSubmit)="onUpdateExp()" novalidate>
-                                            <div class="modal-body">
-                                                <div class="container">
-                                                    <div class="mb-4">
-                                                        <input type="text" class="form-control form-control-lg"
-                                                            id="nombreE" name="nombreE" [(ngModel)]="nombreE"
-                                                            required />
-                                                        <label class="form-label" for="nombreE">Nombre de la
-                                                            Empresa:</label>
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <input type="number" class="form-control form-control-lg"
-                                                            id="periodoE" name="periodoE" [(ngModel)]="periodoE"
-                                                            required />
-                                                        <label class="form-label" for="periodoE">Periodo</label>
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <input type="text" class="form-control form-control-lg"
-                                                            id="descripcionE" name="descripcionE"
-                                                            [(ngModel)]="descripcionE" required />
-                                                        <label class="form-label" for="descripcionE">Descripción</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                                                <button type="button" class="btn btn-danger"
-                                                    data-mdb-dismiss="modal">cancelar</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div -->
+                            
                         </div>
                     </div>
                 </div>

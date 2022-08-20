@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Explaboral } from 'src/app/models/explaboral';
 import { persona } from 'src/app/models/persona.model';
 import { PersonaService } from 'src/app/servicio/persona.service';
@@ -46,16 +45,15 @@ export class CuerpoComponent implements OnInit {
   
     this.sexp.listado().subscribe(data => {this.experiencia = data});
   }
-
-  /* onUpdateExp(): void {
-    const id = this.activar.snapshot.params['id'];
-    this.sexp.update(id, this.editexplab!).subscribe(data => {
-      alert('Datos guardados con éxito');
-      window.location.reload();
-    }, err => {
-      alert('Error en la creación.');
-      window.location.reload();
-    });
-  } */
-
+  onDelJob(id?: number) {
+    if (id != undefined) {
+      this.sexp.delete(id).subscribe(data => {
+        window.location.reload();
+        this.sexp.listado().subscribe(data => {this.experiencia = data});
+      }, err => {
+        alert("Ocurrió un error al eliminar experiencia laboral.");
+        window.location.reload();
+      })
+    }
+  }
 }
