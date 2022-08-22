@@ -21,7 +21,9 @@
                     Ten en cuenta que no deberás colocar información sensible en los campos
                     correspondientes (por ejemplo tarjeta de crédito o débito, identificación,
                     domicilio, cuenta bancaria, clave virtual única, etc), ya que todos estos
-                    datos serán visibles en la internet.
+                    datos serán visibles en la internet. Recuerda que al eliminar una experiencia 
+                    laboral, una educación, o algún dato del portfolio la acción no tiene retorno,
+                    ni tampoco una confirmación. Considera como una advertencia antes de hacer esto.
                 </p>
             </div>
         </div>
@@ -92,49 +94,46 @@
             <h1 class="fuente2 text-center">Experiencia Laboral</h1>
             <div class="card">
                 <div class="card-body">
-                    <div class="alert alert-danger" id="advertencia" *ngIf="isLogged && isAuth" role="alert">
-                        Recuerda que al eliminar una experiencia laboral, la acción no tiene retorno,
-                        ni tampoco una confirmación. Considera como una advertencia al hacer esto.
-                    </div>
                     <div class="row gx-1">
                         <div class="col-md-12">
-                            <table
-                                class="table table-sm table-striped table-hover table-borderless table-light fuente1">
-                                <tbody class="placeholder-glow">
+                            <table class="table table-sm table-striped table-hover table-borderless table-light fuente1">
+                                <thead class="fuente3">
                                     <tr>
-                                        <td><h4 class="fuente1">Trabajo</h4></td>
-                                        <td><h4 class="fuente1">Periodo</h4></td>
-                                        <td><h4 class="fuente1">Descripción</h4></td>
-                                        <td *ngIf="isLogged && isAuth"><h4 class="fuente1">Editar (Doble Clic)</h4></td>
-                                        <td *ngIf="isLogged && isAuth"><h4 class="fuente1">Borrar</h4></td>
+                                        <th scope="col"><h6 class="fuente1">Trabajo</h6></th>
+                                        <th scope="col"><h6 class="fuente1">Periodo</h6></th>
+                                        <th scope="col"><h6 class="fuente1">Descripción</h6></th>
+                                        <th scope="col" *ngIf="isLogged && isAuth"><h6 class="fuente1">Editar (Doble Clic)</h6></th>
+                                        <th scope="col" *ngIf="isLogged && isAuth"><h6 class="fuente1">Borrar</h6></th>
                                     </tr>
+                                </thead>
+                                <tbody class="placeholder-glow">
                                     <tr *ngFor="let Explaboral of experiencia">
-                                        <td>{{Explaboral.nombreE}}</td>
-                                        <td>{{Explaboral.periodoE}} Año(s)</td>
-                                        <td>{{Explaboral.descripcionE}}</td>
-                                        <td *ngIf="isLogged && isAuth" class="text-center">
+                                        <td *ngIf="Explaboral.nombreE != ''">{{Explaboral.nombreE}}</td>            <td class="placeholder-glow" *ngIf="Explaboral.nombreE==''"><span class="placeholder col-12"></span></td>
+                                        <td *ngIf="Explaboral.periodoE != 0">{{Explaboral.periodoE}} Año(s)</td>    <td class="placeholder-glow" *ngIf="Explaboral.periodoE==0"><span class="placeholder col-12"></span></td>
+                                        <td *ngIf="Explaboral.descripcionE != ''">{{Explaboral.descripcionE}}</td>  <td class="placeholder-glow" *ngIf="Explaboral.descripcionE==''"><span class="placeholder col-12"></span></td>
+                                        <td *ngIf="isLogged && isAuth">
                                             <button type="button" class="btn btn-primary btn-floating" [routerLink]="[{outlets: {modal: 'editjob/'+Explaboral.id}}]"
                                                 data-mdb-toggle="modal" data-mdb-target="#edittrabajo">
                                                 <i class="bi bi-pencil-fill"></i>
-                                            </button></td>
-                                        <td *ngIf="isLogged && isAuth" class="text-center">
+                                            </button>
+                                        </td>
+                                        <td *ngIf="isLogged && isAuth">
                                             <button type="button" class="btn btn-danger btn-floating" (click)="onDelJob(Explaboral.id)">
                                                 <i class="bi bi-trash-fill"></i>
-                                            </button></td>
+                                            </button>
+                                        </td>
                                     </tr>
                                 </tbody>
                                 <caption>
                                     En total: {{ experiencia.length }} trabajos
                                 </caption>
                             </table>
-
-                            <button type="button" class="btn btn-primary fuente4"  [routerLink]="[{outlets: {modal: 'newjob'}}]"
-                                data-mdb-toggle="modal" data-mdb-target="#nuevotrabajo" *ngIf="isLogged && isAuth">
-                                <i class="bi bi-plus-lg"></i> Doble clic para Añadir
-                            </button>
-
-
-                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary fuente4"  [routerLink]="[{outlets: {modal: 'newjob'}}]"
+                                    data-mdb-toggle="modal" data-mdb-target="#nuevotrabajo" *ngIf="isLogged && isAuth">
+                                    <i class="bi bi-plus-lg"></i> Doble clic para Añadir
+                                </button>
+                            </div>                          
                         </div>
                     </div>
                 </div>
@@ -146,39 +145,49 @@
         <div>
             <br>
             <h1 class="fuente2 text-center">Educación</h1>
-            <div class="card mb-4">
+            <div class="card mb-4 text-white" style="background-color:#292929;">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="http://www.unsj.edu.ar/img/logo_unsj.png" alt="" width="90%">
-                        </div>
-                        <div class="col-md-8">
-                            <table
-                                class="table table-sm table-striped table-hover table-borderless table-light fuente1">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Institución</th>
-                                        <td>Universidad Nacional de San Juan</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Orientación o facultad:</th>
-                                        <td>Facultad de Ciencias Exactas, Físicas y naturales</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Carrera:</th>
-                                        <td>Lic. de Ciencias de la Computación</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Años:</th>
-                                        <td>6 años</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Estado:</th>
-                                        <td>En curso</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <table class="table table-dark table-striped table-borderless table-sm fuente1">
+                        <thead class="fuente3">
+                            <tr>
+                                <th scope="col"><h6 class="fuente1">Institución o Escuela</h6></th>
+                                <th scope="col"><h6 class="fuente1">Facultad u orientación</h6></th>
+                                <th scope="col"><h6 class="fuente1">Carrera</h6></th>
+                                <th scope="col"><h6 class="fuente1">Periodo</h6></th>
+                                <th scope="col"><h6 class="fuente1">Estado</h6></th>
+                                <th scope="col" *ngIf="isLogged && isAuth"><h6 class="fuente1">Editar (Doble Clic)</h6></th>
+                                <th scope="col" *ngIf="isLogged && isAuth"><h6 class="fuente1">Borrar</h6></th>
+                            </tr>
+                        </thead>
+                        <tbody class="placeholder-glow">
+                            <tr *ngFor="let Educacion of educacion">
+                                <td *ngIf="Educacion.nombreEdu != ''">{{Educacion.nombreEdu}}</td>              <td class="placeholder-glow" *ngIf="Educacion.nombreEdu==''"><span class="placeholder col-12"></span></td>
+                                <td *ngIf="Educacion.orientacionEdu != ''">{{Educacion.orientacionEdu}}</td>    <td class="placeholder-glow" *ngIf="Educacion.orientacionEdu==''"><span class="placeholder col-12"></span></td>
+                                <td *ngIf="Educacion.carreraEdu != ''">{{Educacion.carreraEdu}}</td>            <td class="placeholder-glow" *ngIf="Educacion.carreraEdu==''"><span class="placeholder col-12"></span></td>
+                                <td *ngIf="Educacion.periodoEdu != 0">{{Educacion.periodoEdu}} Año(s)</td>      <td class="placeholder-glow" *ngIf="Educacion.periodoEdu == 0"><span class="placeholder col-12"></span></td>
+                                <td *ngIf="Educacion.estado != ''">{{Educacion.estado}}</td>                    <td class="placeholder-glow" *ngIf="Educacion.estado == ''"><span class="placeholder col-12"></span></td>
+                                <td *ngIf="isLogged && isAuth" class="text-center">
+                                    <button type="button" class="btn btn-primary btn-floating" [routerLink]="[{outlets: {modal: 'editedu/'+Educacion.id}}]"
+                                                data-mdb-toggle="modal" data-mdb-target="#editedu">
+                                                <i class="bi bi-pencil-fill"></i>
+                                    </button>
+                                </td>
+                                <td *ngIf="isLogged && isAuth" class="text-center">
+                                    <button type="button" class="btn btn-danger btn-floating" (click)="onDelEdu(Educacion.id)">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <caption>
+                            En total: {{ educacion.length }} Datos académicos
+                        </caption>
+                    </table>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary fuente4"  [routerLink]="[{outlets: {modal: 'newedu'}}]"
+                            data-mdb-toggle="modal" data-mdb-target="#nuevoedu" *ngIf="isLogged && isAuth">
+                            <i class="bi bi-plus-lg"></i> Doble clic para Añadir
+                        </button>
                     </div>
                 </div>
             </div>
@@ -193,60 +202,24 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-4" *ngFor="let skills of habilidades">
                             <br>
-                            <h6 class="fuente3">HTML</h6>
-                            <div class="progress" style="height: 20px;">
-                                <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
-                                    role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
-                                    style="width: 50%">50%</div>
+                            <h3 class="fuente3"><i class="{{skills.icono}}"></i> {{skills.nombre}}<span></span> {{skills.porcentaje}} %</h3>
+                            <mat-progress-bar mode="determinate" color="{{skills.estilo}}" value="{{skills.porcentaje}}"></mat-progress-bar>
+                            <div class="modal-footer" *ngIf="isLogged && isAuth">
+                                <button type="button" class="btn btn-primary btn-floating" [routerLink]="[{outlets: {modal: 'editskill/'+skills.id}}]" data-mdb-toggle="modal" data-mdb-target="#edithabilidad"><i class="bi bi-pencil-fill"></i></button>
+                                <button type="button" class="btn btn-danger btn-floating" (click)="onDelSkill(skills.id)"><i class="bi bi-trash-fill"></i></button>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4">
-                            <br>
-                            <h6 class="fuente3">CSS</h6>
-                            <div class="progress" style="height: 20px;">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                    aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">30%
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <br>
-                            <h6 class="fuente3">JavaScript</h6>
-                            <div class="progress" style="height: 20px;">
-                                <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated"
-                                    role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"
-                                    style="width: 10%">10%</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <br>
-                            <h6 class="fuente3">Bootstrap</h6>
-                            <div class="progress" style="height: 20px;">
-                                <div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated"
-                                    role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                    style="width: 40%">40%</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <br>
-                            <h6 class="fuente3">Python</h6>
-                            <div class="progress" style="height: 20px;">
-                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
-                                    role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
-                                    style="width: 45%">45%</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <br>
-                            <h6 class="fuente3">GitHub</h6>
-                            <div class="progress" style="height: 20px;">
-                                <div class="progress-bar bg-dark progress-bar-striped progress-bar-animated"
-                                    role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"
-                                    style="width: 65%">65%</div>
-                            </div>
-                        </div>
+                    </div>
+                    <caption>
+                        En total: {{ habilidades.length }} Habilidades
+                    </caption>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary fuente4" [routerLink]="[{outlets: {modal: 'newskill'}}]"
+                        data-mdb-toggle="modal" data-mdb-target="#nuevahabilidad" *ngIf="isLogged && isAuth">
+                            <i class="bi bi-plus-lg"></i> Doble clic para Añadir
+                        </button>
                     </div>
                 </div>
             </div>

@@ -12,7 +12,6 @@ export class NewExpLabComponent implements OnInit {
   nombreE: string = "";
   periodoE: number = 0;
   descripcionE: string = "";
-  mensaje!: string;
 
   @Output() modalClose : EventEmitter<any> = new EventEmitter<any>();
   constructor(private s_explab: SExperienciaService, private router: Router) { }
@@ -29,9 +28,8 @@ export class NewExpLabComponent implements OnInit {
     const expe = new Explaboral(this.nombreE, this.periodoE, this.descripcionE);
 
     this.s_explab.create(expe).subscribe(data => {
-      alert('Datos almacenados en la base de datos con éxito');
+      alert('Datos laborales almacenados con éxito');
       this.router.navigate(['']);
-      this.closeModal({submitted: true})
       window.location.reload();
     }, err => {
       alert('Error en la creación.');

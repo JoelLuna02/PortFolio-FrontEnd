@@ -1,3 +1,21 @@
+<script>
+    (() => {
+        'use strict'
+        /* Sección donde se valida el formulario */
+        const forms = document.querySelectorAll('.needs-validation')
+    
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+</script>
+
 <div class="modal top fade" tabindex="-1" id="nuevotrabajo" aria-hidden="true"
     data-mdb-backdrop="true" data-mdb-keyboard="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered">
@@ -6,16 +24,20 @@
                 <h5 class="modal-title fuente2" >Nuevo Trabajo</h5>
                 <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close" (click)="closeModal({submitted: true})"></button>
             </div>
-            <form class="fuente3" #f="ngForm" (ngSubmit)="onCreate()" novalidate>
+            <form class="fuente3 needs-validation" #f="ngForm" (ngSubmit)="onCreate()" novalidate>
                 <div class="modal-body">
                     <div class="container">
                         <div class="mb-4">
                             <label class="form-label" for="nombreE">Nombre de la Empresa:</label>
                             <input type="text" class="form-control form-control-lg" id="nombreE" name="nombreE"
                                 [(ngModel)]="nombreE" required />
-                        </div>
+                            <div class="invalid-feedback">
+                                Por favor usa un nombre nuevo, o uno distinto. La sección no puede
+                                quedar en blanco.
+                            </div>
+                        </div>      
                         <div class="mb-4">
-                            <label class="form-label" for="periodoE">Periodo</label>
+                            <label class="form-label" for="periodoE">Periodo (en años)</label>
                             <input type="number" class="form-control form-control-lg" id="periodoE" name="periodoE"
                                 [(ngModel)]="periodoE" required />
                         </div>
@@ -23,6 +45,9 @@
                             <label class="form-label" for="descripcionE">Descripción</label>
                             <textarea class="form-control form-control-lg" id="descripcionE"
                                 name="descripcionE" [(ngModel)]="descripcionE" required rows="4"></textarea>
+                            <div class="invalid-feedback">
+                                Por favor usa una descripción. La sección no puede quedar en blanco.
+                            </div>
                         </div>
                     </div>
                 </div>

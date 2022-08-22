@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
     }
     this.autoridad = this.auth.getAuthorities();
     this.usuario = this.auth.getUserName();
-    if (this.autoridad[1] == 'ROLE_ADMIN'){
+    if (this.autoridad[1] == 'ROLE_ADMIN' && this.autoridad[0] == 'ROLE_USER'){
       this.condicion = "Administrador";
     } else {
       this.condicion = "Normal";

@@ -12,6 +12,12 @@ import { MainComponent } from './componentes/main/main.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { NewExpLabComponent } from './componentes/new-exp-lab.component';
 import { EditExpLabComponent } from './componentes/edit-exp-lab.component';
+import { NewEduComponent } from './componentes/new-edu.component';
+import { EditEduComponent } from './componentes/edit-edu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { NewSkillComponent } from './componentes/new-skill.component';
+import { EditSkillComponent } from './componentes/edit-skill.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +28,19 @@ import { EditExpLabComponent } from './componentes/edit-exp-lab.component';
     MainComponent,
     LoginComponent,
     NewExpLabComponent,
-    EditExpLabComponent
+    EditExpLabComponent,
+    NewEduComponent,
+    EditEduComponent,
+    NewSkillComponent,
+    EditSkillComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

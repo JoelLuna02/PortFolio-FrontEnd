@@ -1,0 +1,74 @@
+<script>
+    (() => {
+        'use strict'
+        /* Sección donde se valida el formulario */
+        const forms = document.querySelectorAll('.needs-validation')
+    
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+</script>
+
+<div class="modal top fade" tabindex="-1" id="edithabilidad" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fuente2" >Editar Habilidad</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close" (click)="closeModal({submitted: true})"></button>
+            </div>
+            <form class="fuente3 needs-validation" #f="ngForm" (ngSubmit)="onUpdateSkill()" novalidate>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="mb-4">
+                                <label class="form-label" for="nombre">Nombre de la habilidad</label>
+                                <input type="text" class="form-control form-control-lg" name="nombre" id="nombre" [(ngModel)]="updateSkill.nombre" required />
+                                <div class="invalid-feedback">
+                                    Por favor usa un nombre nuevo, o uno distinto. La sección no puede
+                                    quedar en blanco.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-4">
+                                <label class="form-label" for="porcentaje">Porcentaje</label>
+                                <input type="number" class="form-control form-control-lg" name="porcentaje" id="porcentaje" [(ngModel)]="updateSkill.porcentaje" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="estilo">Estilo</label>
+                        <select class="form-select" aria-label="Default select example" id="estilo" name="estilo" [(ngModel)]="updateSkill.estilo" required >
+                            <option selected value="">Color 1 (Por defecto: (Azul))</option>
+                            <option value="warn">Color 2 (Warn: Rojo)</option>
+                            <option value="accent">Color 3 (Accent: Rosa)</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="icono">Ícono (opcional)</label>
+                        <p class="fuente3">
+                            Para poder añadir un ícono a tu habilidad, debes copiar y pegar el código
+                            de la clase del icono html. Por ejemplo: Está disponible los íconos de
+                            <a href="https://icons.getbootstrap.com/">Bootstrap</a>, <a href="https://mdbootstrap.com/docs/standard/content-styles/icons/">MDBootstrap</a> y 
+                            <a href="https://fontawesome.com/icons">Font Awesome (Usando iconos Brands)</a>, en el caso de un icono html de 
+                            bootstrap seria: <code>bi bi-filetype-html</code>
+                        </p>
+                        <input type="text" class="form-control form-control-lg" id="icono" name="icono" [(ngModel)]="updateSkill.icono" required />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary fuente3">Guardar Cambios</button>
+                    <button type="button" class="btn btn-danger fuente3" data-mdb-dismiss="modal" (click)="closeModal({submitted: true})">cancelar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="modal top fade" tabindex="-1" id="editedu" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fuente2">Editar información educativa</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close" (click)="closeModal({submitted: true})"></button>
+            </div>
+            <form class="fuente3 needs-validation" #f="ngForm" (ngSubmit)="onUpdateEdu()" novalidate>
+                <div class="modal-body">
+                    <div class="container-sm">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-4">
+                                    <label class="form-label" for="nombreEdu">Nombre de la escuela o Institución</label>
+                                    <input type="text" class="form-control form-control-lg" id="nombreEdu" name="nombreEdu" [(ngModel)]="updateEdu.nombreEdu" required />
+                                    <div class="invalid-feedback">
+                                        Por favor usa un nombre nuevo. Este campo no puede quedar en blanco.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-4">
+                                    <label class="form-label" for="orientacionEdu">Facultad u orientación</label>
+                                    <input type="text" class="form-control form-control-lg" name="orientacionEdu" id="orientacionEdu" [(ngModel)]="updateEdu.orientacionEdu" required />
+                                    <div class="valid-feedback">
+                                        Recuerda que no debes poner información falsa
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sm-4">
+                            <label class="form-label" for="carreraEdu">Carrera</label>
+                            <input type="text" class="form-control" name="carreraEdu" id="carreraEdu" [(ngModel)]="updateEdu.carreraEdu" required />
+                            <div class="valid-feedback">
+                                Recuerda que no debes poner información falsa
+                            </div>
+                        </div>
+                        <div class="sm-4">
+                            <label class="form-label" for="periodoEdu">Periodo (en años)</label>
+                            <input type="number" class="form-control" name="periodoEdu" id="periodoEdu" [(ngModel)]="updateEdu.periodoEdu" required />
+                        </div>
+                        <div class="sm-5">
+                            <label class="form-label" for="estado">Estado actual</label>
+                            <select class="form-select" aria-label="Default select example" id="estado" name="estado" [(ngModel)]="updateEdu.estado" required>
+                                <option selected disabled value="">Escoje un estado</option>
+                                <option value="En curso">En curso</option>
+                                <option value="Completo">Carrera Finalizada</option>
+                                <option value="Incompleto">Carrera Incompleta</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Por favor escoje una sección valida.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary fuente3">Guardar Cambios</button>
+                    <button type="button" class="btn btn-danger fuente3" data-mdb-dismiss="modal" (click)="closeModal({submitted: true})">cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
