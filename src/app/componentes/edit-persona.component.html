@@ -1,0 +1,60 @@
+<div class="modal top fade" tabindex="-1" id="editperfil" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fuente2">Editar perfil</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close" (click)="closeModal({submitted: true})"></button>
+            </div>
+            <form class="fuente3 needs-validation" #f="ngForm" (ngSubmit)="onUpdatePersona()" novalidate>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="mb-4">
+                                <label class="form-label" for="nombre">Nombre completo:</label>
+                                <input type="text" class="form-control form-control-lg" id="nombre" name="nombre" [(ngModel)]="updatepersona.nombre" required />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-4">
+                                <label class="form-label" for="apellido">Apellido completo:</label>
+                                <input type="text" id="apellido" name="apellido" class="form-control form-control-lg" [(ngModel)]="updatepersona.apellido" required />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-4">
+                                <label class="form-label" for="email">Correo electrónico:</label>
+                                <input type="email" class="form-control form-control-lg" id="email" name="email" [(ngModel)]="updatepersona.email" required />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-4">
+                                <label class="form-label" for="edad">Edad actual:</label>
+                                <input type="number" class="form-control form-control-lg" id="edad" name="edad" [(ngModel)]="updatepersona.edad" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="oficio">Oficio:</label>
+                        <input type="text" class="form-control form-control-lg" id="oficio" name="oficio" [(ngModel)]="updatepersona.oficio" required />
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="descripcion">Descripción: </label>
+                        <textarea class="form-control form-control-lg" id="descripcion" name="descripcion" [(ngModel)]="updatepersona.descripcion" required rows="5"></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="localidad">Localidad actual:</label>
+                        <input type="text" class="form-control form-control-lg" id="localidad" name="localidad" [(ngModel)]="updatepersona.localidad" required />
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="hobbie">Hobbies:</label>
+                        <input type="text" class="form-control form-control-lg" id="hobbie" name="hobbie" [(ngModel)]="updatepersona.hobbies" required />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal" (click)="closeModal({submitted: true})">cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

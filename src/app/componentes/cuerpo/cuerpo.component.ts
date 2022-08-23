@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Educacion } from 'src/app/models/educacion';
 import { Explaboral } from 'src/app/models/explaboral';
 import { HSSkills } from 'src/app/models/hsskills';
-import { persona } from 'src/app/models/persona.model';
+import { Persona } from '../../models/persona';
 import { PersonaService } from 'src/app/servicio/persona.service';
 import { SeducacionService } from 'src/app/servicio/seducacion.service';
 import { SExperienciaService } from 'src/app/servicio/sexperiencia.service';
@@ -22,14 +22,14 @@ export class CuerpoComponent implements OnInit {
   resul: string[] = [];
 
   // Seccion de persona
-  persona: persona = new persona('','','','',0,'','','');
+  persona: Persona = null;
 
   // Sección de trabajos 
   experiencia: Explaboral[] = [];
   educacion: Educacion[] = [];
   habilidades: HSSkills[] = [];
 
-  constructor(public servicio:PersonaService, 
+  constructor(private servicio:PersonaService, 
               private tokenserv: TokenService, 
               private sexp: SExperienciaService,
               private sedu: SeducacionService,
@@ -49,7 +49,7 @@ export class CuerpoComponent implements OnInit {
     }
 
     /* Se extrae información de la base de datos al frontend */ 
-    this.servicio.getPersona().subscribe(data => (this.persona = data));
+    this.servicio.detail(1).subscribe(data => (this.persona = data));
     this.sexp.listado().subscribe(data => {this.experiencia = data});
     this.sedu.listado().subscribe(data => {this.educacion = data});
     this.sskill.listado().subscribe(data => {this.habilidades = data});

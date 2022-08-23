@@ -37,10 +37,12 @@ export class EditExpLabComponent implements OnInit {
     const id = this.activateR.snapshot.params['id'];
     this.expservice.update(id, this.updateExp).subscribe(data => {
       alert("Datos modificados con éxito");
+      this.closeModal({submitted: true});
       this.router.navigate(['']);
       window.location.reload();
     }, err => {
       alert('Error en la creación.');
+      this.closeModal({submitted: true});
       this.router.navigate(['']);
       window.location.reload();
     })

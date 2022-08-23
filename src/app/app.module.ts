@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NewSkillComponent } from './componentes/new-skill.component';
 import { EditSkillComponent } from './componentes/edit-skill.component';
+import { EditPersonaComponent } from './componentes/edit-persona.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { EditSkillComponent } from './componentes/edit-skill.component';
     NewEduComponent,
     EditEduComponent,
     NewSkillComponent,
-    EditSkillComponent
+    EditSkillComponent,
+    EditPersonaComponent
   ],
   imports: [
     BrowserModule,

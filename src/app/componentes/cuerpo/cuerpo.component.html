@@ -86,6 +86,11 @@
                     </div>
                 </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-floating" [routerLink]="[{outlets: {modal: 'editperfil/'+persona.id}}]" data-mdb-toggle="modal" data-mdb-target="#editperfil" *ngIf="isLogged && isAuth">
+                    <i class="bi bi-pencil-fill"></i>
+                </button>
+            </div>
         </div>
     </section>
 
