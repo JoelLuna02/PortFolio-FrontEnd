@@ -4,31 +4,45 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title fuente2" id="edittrabajoLabel">Editar Trabajo</h5>
-                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close" (click)="closeModal({submitted: true})"></button>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"
+                    (click)="closeModal({submitted: true})"></button>
             </div>
             <form class="fuente3" #f="ngForm" (ngSubmit)="onUpdateExp()" novalidate>
                 <div class="modal-body">
                     <div class="container">
-                        <div class="mb-4">
-                            <label class="form-label" for="nombreE">Nombre de la Empresa:</label>
-                            <input type="text" class="form-control form-control-lg" id="nombreE" name="nombreE"
-                                [(ngModel)]="updateExp.nombreE" required />
+                        <div class="mb-2">
+                            <mat-form-field appearance="fill" for="nombreE" style="width: 100%;">
+                                <mat-label>Nombre de la Empresa:</mat-label>
+                                <input matInput type="text" id="nombreE" name="nombreE"
+                                    [(ngModel)]="updateExp.nombreE" />
+                            </mat-form-field>
                         </div>
-                        <div class="mb-4">
-                            <label class="form-label" for="periodoE">Periodo</label>
-                            <input type="number" class="form-control form-control-lg" id="periodoE" name="periodoE"
-                                [(ngModel)]="updateExp.periodoE" required />
+                        <div class="mb-2">
+                            <mat-form-field appearance="fill" for="periodoE" style="width: 100%;">
+                                <mat-label>Periodo (en años)</mat-label>
+                                <input matInput type="number" id="periodoE" name="periodoE"
+                                    [(ngModel)]="updateExp.periodoE" />
+                            </mat-form-field>
                         </div>
-                        <div class="mb-4">
-                            <label class="form-label" for="descripcionE">Descripción</label>
-                            <textarea class="form-control form-control-lg" id="descripcionE"
-                                name="descripcionE" [(ngModel)]="updateExp.descripcionE" required rows="4"></textarea>
+                        <div class="mb-2">
+                            <mat-form-field appearance="fill" for="descripcionE" style="width: 100%;">
+                                <mat-label>Descripción</mat-label>
+                                <textarea matInput id="descripcionE" name="descripcionE"
+                                    [(ngModel)]="updateExp.descripcionE" rows="4"></textarea>
+                            </mat-form-field>
+                        </div>
+                        <div class="mb-2">
+                            <mat-form-field appearance="fill" for="imagen" style="width: 100%;">
+                                <mat-label>URL de la imagen de la empresa (Opcional)</mat-label>
+                                <input matInput type="url" id="imagen" name="imagen" [(ngModel)]="updateExp.img">
+                            </mat-form-field>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                    <button type="button" class="btn btn-danger" data-mdb-dismiss="modal" (click)="closeModal({submitted: true})">cancelar</button>
+                    <button type="button" class="btn btn-danger" data-mdb-dismiss="modal"
+                        (click)="closeModal({submitted: true})">cancelar</button>
                 </div>
             </form>
         </div>

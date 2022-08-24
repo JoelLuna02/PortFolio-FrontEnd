@@ -5,12 +5,14 @@ export class Educacion {
     periodoEdu: number;
     carreraEdu: string;
     estado: string;
+    img: string;
     
-    constructor(nom: string, orient: string, periodo:number, carrera:string, estado: string) {
+    constructor(nom: string, orient: string, periodo:number, carrera:string, estado: string, img: string) {
         this.nombreEdu = nom;
         this.orientacionEdu = orient;
         this.periodoEdu = periodo;
         this.carreraEdu = carrera;
         this.estado = estado;
+        this.img = img;
     }
 }

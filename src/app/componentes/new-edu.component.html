@@ -28,46 +28,50 @@
                     <div class="container-sm">
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="mb-4">
-                                    <label class="form-label" for="nombreEdu">Nombre de la escuela o Institución</label>
-                                    <input type="text" class="form-control form-control-lg" id="nombreEdu" name="nombreEdu" [(ngModel)]="nombreEdu" required />
-                                    <div class="invalid-feedback">
-                                        Por favor usa un nombre nuevo. Este campo no puede quedar en blanco.
-                                    </div>
+                                <div class="mb-2">
+                                    <mat-form-field appearance="fill" for="nombreEdu" style="width: 100%;">
+                                        <mat-label>Nombre de la escuela o Institución</mat-label>
+                                        <input matInput type="text" id="nombreEdu" name="nombreEdu" [(ngModel)]="nombreEdu" />
+                                    </mat-form-field>                                  
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="mb-4">
-                                    <label class="form-label" for="orientacionEdu">Facultad u orientación</label>
-                                    <input type="text" class="form-control form-control-lg" name="orientacionEdu" id="orientacionEdu" [(ngModel)]="orientacionEdu" required />
-                                    <div class="valid-feedback">
-                                        Recuerda que no debes poner información falsa
-                                    </div>
+                                <div class="mb-2">
+                                    <mat-form-field appearance="fill" for="orientacionEdu" style="width: 100%;">
+                                        <mat-label>Facultad u orientación</mat-label>
+                                        <input matInput type="text" name="orientacionEdu" id="orientacionEdu" [(ngModel)]="orientacionEdu" />
+                                    </mat-form-field>
                                 </div>
                             </div>
                         </div>
-                        <div class="sm-4">
-                            <label class="form-label" for="carreraEdu">Carrera</label>
-                            <input type="text" class="form-control" name="carreraEdu" id="carreraEdu" [(ngModel)]="carreraEdu" required />
-                            <div class="valid-feedback">
-                                Recuerda que no debes poner información falsa
-                            </div>
+                        <div class="mb-2">
+                            <mat-form-field appearance="fill" for="carreraEdu" style="width: 100%;">
+                                <mat-label>Carrera</mat-label>
+                                <input matInput type="text" name="carreraEdu" id="carreraEdu" [(ngModel)]="carreraEdu" />
+                            </mat-form-field>
                         </div>
-                        <div class="sm-4">
-                            <label class="form-label" for="periodoEdu">Periodo (en años)</label>
-                            <input type="number" class="form-control" name="periodoEdu" id="periodoEdu" [(ngModel)]="periodoEdu" required />
+                        <div class="mb-2">
+                            <mat-form-field appearance="fill" for="periodoEdu" style="width: 100%;">
+                                <mat-label>Periodo (en años)</mat-label>
+                                <input matInput type="number" name="periodoEdu" id="periodoEdu" [(ngModel)]="periodoEdu" />
+                            </mat-form-field>
                         </div>
-                        <div class="sm-5">
-                            <label class="form-label" for="estado">Estado actual</label>
-                            <select class="form-select" aria-label="Default select example" id="estado" name="estado" [(ngModel)]="estado" required>
-                                <option selected disabled value="">Escoje un estado</option>
-                                <option value="En curso">En curso</option>
-                                <option value="Completo">Carrera Finalizada</option>
-                                <option value="Incompleto">Carrera Incompleta</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Por favor escoje una sección valida.
-                            </div>
+                        <div class="mb-2">
+                            <mat-form-field appearance="fill" for="estado" style="width: 100%;">
+                                <mat-label>Estado actual</mat-label>
+                                <select matNativeControl [(ngModel)]="estado" id="estado" name="estado">
+                                    <option selected disabled>Escoje un estado</option>
+                                    <option value="En curso">En curso</option>
+                                    <option value="Completo">Carrera Finalizada</option>
+                                    <option value="Incompleto">Carrera Incompleta</option>
+                                </select>
+                            </mat-form-field>
+                        </div>
+                        <div class="mb-2">
+                            <mat-form-field appearance="fill" for="imagen" style="width: 100%;">
+                                <mat-label>URL de la imagen de la institución (Opcional)</mat-label>
+                                <input matInput type="url" id="imagen" name="imagen" [(ngModel)]="imagen">
+                            </mat-form-field>
                         </div>
                     </div>
                 </div>

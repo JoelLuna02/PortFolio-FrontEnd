@@ -11,14 +11,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './componentes/main/main.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { NewExpLabComponent } from './componentes/new-exp-lab.component';
-import { EditExpLabComponent } from './componentes/edit-exp-lab.component';
-import { NewEduComponent } from './componentes/new-edu.component';
-import { EditEduComponent } from './componentes/edit-edu.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NewSkillComponent } from './componentes/new-skill.component';
+import { NewEduComponent } from './componentes/new-edu.component';
 import { EditSkillComponent } from './componentes/edit-skill.component';
 import { EditPersonaComponent } from './componentes/edit-persona.component';
+import { EditExpLabComponent } from './componentes/edit-exp-lab.component';
+import { EditEduComponent } from './componentes/edit-edu.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule }  from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +48,11 @@ import { EditPersonaComponent } from './componentes/edit-persona.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatProgressBarModule
+    MatFormFieldModule,
+    MatProgressBarModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

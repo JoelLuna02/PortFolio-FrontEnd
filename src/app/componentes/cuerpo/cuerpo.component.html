@@ -87,118 +87,124 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary btn-floating" [routerLink]="[{outlets: {modal: 'editperfil/'+persona.id}}]" data-mdb-toggle="modal" data-mdb-target="#editperfil" *ngIf="isLogged && isAuth">
+                <button mat-mini-fab color="primary" [routerLink]="[{outlets: {modal: 'editperfil/'+persona.id}}]" data-mdb-toggle="modal" data-mdb-target="#editperfil" *ngIf="isLogged && isAuth">
                     <i class="bi bi-pencil-fill"></i>
                 </button>
             </div>
         </div>
     </section>
 
-    <section class="container-xxl" id="experiencia">
-        <div> <br>
-            <h1 class="fuente2 text-center">Experiencia Laboral</h1>
-            <div class="card">
-                <div class="card-body">
-                    <div class="row gx-1">
-                        <div class="col-md-12">
-                            <table class="table table-sm table-striped table-hover table-borderless table-light fuente1">
-                                <thead class="fuente3">
-                                    <tr>
-                                        <th scope="col"><h6 class="fuente1">Trabajo</h6></th>
-                                        <th scope="col"><h6 class="fuente1">Periodo</h6></th>
-                                        <th scope="col"><h6 class="fuente1">Descripción</h6></th>
-                                        <th scope="col" *ngIf="isLogged && isAuth"><h6 class="fuente1">Editar (Doble Clic)</h6></th>
-                                        <th scope="col" *ngIf="isLogged && isAuth"><h6 class="fuente1">Borrar</h6></th>
-                                    </tr>
-                                </thead>
-                                <tbody class="placeholder-glow">
-                                    <tr *ngFor="let Explaboral of experiencia">
-                                        <td *ngIf="Explaboral.nombreE != ''">{{Explaboral.nombreE}}</td>            <td class="placeholder-glow" *ngIf="Explaboral.nombreE==''"><span class="placeholder col-12"></span></td>
-                                        <td *ngIf="Explaboral.periodoE != 0">{{Explaboral.periodoE}} Año(s)</td>    <td class="placeholder-glow" *ngIf="Explaboral.periodoE==0"><span class="placeholder col-12"></span></td>
-                                        <td *ngIf="Explaboral.descripcionE != ''">{{Explaboral.descripcionE}}</td>  <td class="placeholder-glow" *ngIf="Explaboral.descripcionE==''"><span class="placeholder col-12"></span></td>
-                                        <td *ngIf="isLogged && isAuth">
-                                            <button type="button" class="btn btn-primary btn-floating" [routerLink]="[{outlets: {modal: 'editjob/'+Explaboral.id}}]"
-                                                data-mdb-toggle="modal" data-mdb-target="#edittrabajo">
-                                                <i class="bi bi-pencil-fill"></i>
-                                            </button>
-                                        </td>
-                                        <td *ngIf="isLogged && isAuth">
-                                            <button type="button" class="btn btn-danger btn-floating" (click)="onDelJob(Explaboral.id)">
-                                                <i class="bi bi-trash-fill"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <caption>
-                                    En total: {{ experiencia.length }} trabajos
-                                </caption>
-                            </table>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary fuente4"  [routerLink]="[{outlets: {modal: 'newjob'}}]"
+    <div class="row gx-1">
+        <div class="col-lg-6">
+            <section class="container-xxl" id="experiencia">
+                <div><br>
+                    <h1 class="fuente2 text-center">Experiencia Laboral</h1>
+                    <div class="card">
+                        <div class="card-body">
+                            <div *ngFor="let laburos of experiencia">
+                                <div class="row gx-1">
+                                    <div class="col-md-4">
+                                        <img src={{laburos.img}} alt="" width="100%" class="text-center" style="padding: 20px;">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <table class="table table-striped table-sm table-hover table-borderless table-light fuente3">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Empresa:</th>
+                                                    <td>{{laburos.nombreE}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Periodo:</th>
+                                                    <td>{{laburos.periodoE}} Años</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Descripción:</th>
+                                                    <td>{{laburos.descripcionE}}</td>
+                                                </tr>                                       
+                                            </tbody>
+                                        </table>
+                                        
+                                        <div class="modal-footer" *ngIf="isLogged && isAuth">
+                                            <button mat-mini-fab color="primary" [routerLink]="[{outlets: {modal: 'editjob/'+laburos.id}}]" data-mdb-toggle="modal" data-mdb-target="#edittrabajo"><i class="bi bi-pencil-fill"></i></button>
+                                            <button mat-mini-fab color="warn" (click)="onDelJob(laburos.id)"><i class="bi bi-trash-fill"></i></button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div> 
+                            </div>       
+                            <div class="modal-footer" *ngIf="isLogged && isAuth">
+                                <button mat-raised-button color="primary"  [routerLink]="[{outlets: {modal: 'newjob'}}]"
                                     data-mdb-toggle="modal" data-mdb-target="#nuevotrabajo" *ngIf="isLogged && isAuth">
                                     <i class="bi bi-plus-lg"></i> Doble clic para Añadir
                                 </button>
-                            </div>                          
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
-    </section>
 
-    <section class="container-xxl" id="educacion">
-        <div>
-            <br>
-            <h1 class="fuente2 text-center">Educación</h1>
-            <div class="card mb-4 text-white" style="background-color:#292929;">
-                <div class="card-body">
-                    <table class="table table-dark table-striped table-borderless table-sm fuente1">
-                        <thead class="fuente3">
-                            <tr>
-                                <th scope="col"><h6 class="fuente1">Institución o Escuela</h6></th>
-                                <th scope="col"><h6 class="fuente1">Facultad u orientación</h6></th>
-                                <th scope="col"><h6 class="fuente1">Carrera</h6></th>
-                                <th scope="col"><h6 class="fuente1">Periodo</h6></th>
-                                <th scope="col"><h6 class="fuente1">Estado</h6></th>
-                                <th scope="col" *ngIf="isLogged && isAuth"><h6 class="fuente1">Editar (Doble Clic)</h6></th>
-                                <th scope="col" *ngIf="isLogged && isAuth"><h6 class="fuente1">Borrar</h6></th>
-                            </tr>
-                        </thead>
-                        <tbody class="placeholder-glow">
-                            <tr *ngFor="let Educacion of educacion">
-                                <td *ngIf="Educacion.nombreEdu != ''">{{Educacion.nombreEdu}}</td>              <td class="placeholder-glow" *ngIf="Educacion.nombreEdu==''"><span class="placeholder col-12"></span></td>
-                                <td *ngIf="Educacion.orientacionEdu != ''">{{Educacion.orientacionEdu}}</td>    <td class="placeholder-glow" *ngIf="Educacion.orientacionEdu==''"><span class="placeholder col-12"></span></td>
-                                <td *ngIf="Educacion.carreraEdu != ''">{{Educacion.carreraEdu}}</td>            <td class="placeholder-glow" *ngIf="Educacion.carreraEdu==''"><span class="placeholder col-12"></span></td>
-                                <td *ngIf="Educacion.periodoEdu != 0">{{Educacion.periodoEdu}} Año(s)</td>      <td class="placeholder-glow" *ngIf="Educacion.periodoEdu == 0"><span class="placeholder col-12"></span></td>
-                                <td *ngIf="Educacion.estado != ''">{{Educacion.estado}}</td>                    <td class="placeholder-glow" *ngIf="Educacion.estado == ''"><span class="placeholder col-12"></span></td>
-                                <td *ngIf="isLogged && isAuth" class="text-center">
-                                    <button type="button" class="btn btn-primary btn-floating" [routerLink]="[{outlets: {modal: 'editedu/'+Educacion.id}}]"
-                                                data-mdb-toggle="modal" data-mdb-target="#editedu">
+        <div class="col-lg-6">
+            <section class="container-xxl" id="educacion">
+                <div><br>
+                    <h1 class="fuente2 text-center">Educación</h1>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div *ngFor="let edu of educacion">
+                                <div class="row gx-1">
+                                    <div class="col-md-4">
+                                        <img src={{edu.img}} alt="" width="100%" style="padding: 20px;">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <table class="table table-striped table-sm table-hover table-borderless table-light fuente3">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Institución:</th>
+                                                    <td>{{edu.nombreEdu}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Orientación o facultad:</th>
+                                                    <td>{{edu.orientacionEdu}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Carrera:</th>
+                                                    <td>{{edu.carreraEdu}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Periodo:</th>
+                                                    <td>{{edu.periodoEdu}} Años</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Estado:</th>
+                                                    <td>{{edu.estado}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="modal-footer" *ngIf="isLogged && isAuth">
+                                            <button mat-mini-fab color="primary" [routerLink]="[{outlets: {modal: 'editedu/'+edu.id}}]" data-mdb-toggle="modal" data-mdb-target="#editedu">
                                                 <i class="bi bi-pencil-fill"></i>
-                                    </button>
-                                </td>
-                                <td *ngIf="isLogged && isAuth" class="text-center">
-                                    <button type="button" class="btn btn-danger btn-floating" (click)="onDelEdu(Educacion.id)">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <caption>
-                            En total: {{ educacion.length }} Datos académicos
-                        </caption>
-                    </table>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary fuente4"  [routerLink]="[{outlets: {modal: 'newedu'}}]"
-                            data-mdb-toggle="modal" data-mdb-target="#nuevoedu" *ngIf="isLogged && isAuth">
-                            <i class="bi bi-plus-lg"></i> Doble clic para Añadir
-                        </button>
+                                            </button>
+                                            <button mat-mini-fab color="warn" (click)="onDelEdu(edu.id)">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+        
+                            <div class="modal-footer" *ngIf="isLogged && isAuth">
+                                <button mat-raised-button color="primary" [routerLink]="[{outlets: {modal: 'newedu'}}]"
+                                    data-mdb-toggle="modal" data-mdb-target="#nuevoedu" *ngIf="isLogged && isAuth">
+                                    <i class="bi bi-plus-lg"></i> Doble clic para Añadir
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
-    </section>
-
+    </div>
 
     <section id="skills">
         <div class="container-sm">
@@ -212,8 +218,8 @@
                             <h3 class="fuente3"><i class="{{skills.icono}}"></i> {{skills.nombre}}<span></span> {{skills.porcentaje}} %</h3>
                             <mat-progress-bar mode="determinate" color="{{skills.estilo}}" value="{{skills.porcentaje}}"></mat-progress-bar>
                             <div class="modal-footer" *ngIf="isLogged && isAuth">
-                                <button type="button" class="btn btn-primary btn-floating" [routerLink]="[{outlets: {modal: 'editskill/'+skills.id}}]" data-mdb-toggle="modal" data-mdb-target="#edithabilidad"><i class="bi bi-pencil-fill"></i></button>
-                                <button type="button" class="btn btn-danger btn-floating" (click)="onDelSkill(skills.id)"><i class="bi bi-trash-fill"></i></button>
+                                <button mat-mini-fab color="primary" [routerLink]="[{outlets: {modal: 'editskill/'+skills.id}}]" data-mdb-toggle="modal" data-mdb-target="#edithabilidad"><i class="bi bi-pencil-fill"></i></button>
+                                <button mat-mini-fab color="warn" (click)="onDelSkill(skills.id)"><i class="bi bi-trash-fill"></i></button>
                             </div>
                         </div>
                     </div>
@@ -221,7 +227,7 @@
                         En total: {{ habilidades.length }} Habilidades
                     </caption>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary fuente4" [routerLink]="[{outlets: {modal: 'newskill'}}]"
+                        <button mat-raised-button color="primary" [routerLink]="[{outlets: {modal: 'newskill'}}]"
                         data-mdb-toggle="modal" data-mdb-target="#nuevahabilidad" *ngIf="isLogged && isAuth">
                             <i class="bi bi-plus-lg"></i> Doble clic para Añadir
                         </button>

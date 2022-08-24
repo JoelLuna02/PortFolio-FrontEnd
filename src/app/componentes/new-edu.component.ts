@@ -14,6 +14,7 @@ export class NewEduComponent implements OnInit {
   periodoEdu: number = 0;
   carreraEdu: string = '';
   estado: string = '';
+  imagen: string = "";
 
   @Output() modalClose : EventEmitter<any> = new EventEmitter<any>();
   constructor(private sedu: SeducacionService, private router: Router) { }
@@ -27,7 +28,7 @@ export class NewEduComponent implements OnInit {
   }
 
   onCreate(): void {
-    const edunew = new Educacion(this.nombreEdu,this.orientacionEdu,this.periodoEdu,this.carreraEdu,this.estado);
+    const edunew = new Educacion(this.nombreEdu,this.orientacionEdu,this.periodoEdu,this.carreraEdu,this.estado, this.imagen);
     this.sedu.create(edunew).subscribe(data => {
       alert('Datos educativos almacenados con éxito');
       this.router.navigate(['']);

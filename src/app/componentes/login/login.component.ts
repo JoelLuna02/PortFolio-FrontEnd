@@ -47,5 +47,7 @@ export class LoginComponent implements OnInit {
         
       })
   }
-
+  onRegresar(): void {
+    this.router.navigate([''])
+  }
 }

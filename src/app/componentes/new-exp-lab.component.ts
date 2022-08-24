@@ -12,6 +12,7 @@ export class NewExpLabComponent implements OnInit {
   nombreE: string = "";
   periodoE: number = 0;
   descripcionE: string = "";
+  imagen: string = "";
 
   @Output() modalClose : EventEmitter<any> = new EventEmitter<any>();
   constructor(private s_explab: SExperienciaService, private router: Router) { }
@@ -25,7 +26,7 @@ export class NewExpLabComponent implements OnInit {
   }
 
   onCreate(): void {
-    const expe = new Explaboral(this.nombreE, this.periodoE, this.descripcionE);
+    const expe = new Explaboral(this.nombreE, this.periodoE, this.descripcionE, this.imagen);
 
     this.s_explab.create(expe).subscribe(data => {
       alert('Datos laborales almacenados con éxito');

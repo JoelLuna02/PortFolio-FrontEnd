@@ -27,27 +27,30 @@
             <form class="fuente3 needs-validation" #f="ngForm" (ngSubmit)="onCreate()" novalidate>
                 <div class="modal-body">
                     <div class="container">
-                        <div class="mb-4">
-                            <label class="form-label" for="nombreE">Nombre de la Empresa:</label>
-                            <input type="text" class="form-control form-control-lg" id="nombreE" name="nombreE"
-                                [(ngModel)]="nombreE" required />
-                            <div class="invalid-feedback">
-                                Por favor usa un nombre nuevo, o uno distinto. La sección no puede
-                                quedar en blanco.
-                            </div>
+                        <div class="mb-2">
+                            <mat-form-field appearance="fill" for="nombreE" style="width: 100%;">
+                                <mat-label>Nombre de la Empresa:</mat-label>
+                                <input matInput type="text" id="nombreE" name="nombreE"
+                                [(ngModel)]="nombreE" />
+                            </mat-form-field>          
                         </div>      
-                        <div class="mb-4">
-                            <label class="form-label" for="periodoE">Periodo (en años)</label>
-                            <input type="number" class="form-control form-control-lg" id="periodoE" name="periodoE"
-                                [(ngModel)]="periodoE" required />
+                        <div class="mb-2">
+                            <mat-form-field appearance="fill" for="periodoE" style="width: 100%;">
+                                <mat-label>Periodo (en años)</mat-label>
+                                <input matInput type="number" id="periodoE" name="periodoE" [(ngModel)]="periodoE" />
+                            </mat-form-field>                  
                         </div>
-                        <div class="mb-4">
-                            <label class="form-label" for="descripcionE">Descripción</label>
-                            <textarea class="form-control form-control-lg" id="descripcionE"
-                                name="descripcionE" [(ngModel)]="descripcionE" required rows="4"></textarea>
-                            <div class="invalid-feedback">
-                                Por favor usa una descripción. La sección no puede quedar en blanco.
-                            </div>
+                        <div class="mb-2">
+                            <mat-form-field appearance="fill" for="descripcionE" style="width: 100%;">
+                                <mat-label>Descripción</mat-label>
+                                <textarea matInput id="descripcionE" name="descripcionE" [(ngModel)]="descripcionE" rows="4"></textarea>
+                            </mat-form-field>
+                        </div>
+                        <div class="mb-2">
+                            <mat-form-field appearance="fill" for="imagen" style="width: 100%;">
+                                <mat-label>URL de la imagen de la empresa (Opcional)</mat-label>
+                                <input matInput type="url" id="imagen" name="imagen" [(ngModel)]="imagen">
+                            </mat-form-field>                          
                         </div>
                     </div>
                 </div>
