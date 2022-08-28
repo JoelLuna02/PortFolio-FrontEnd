@@ -31,7 +31,7 @@
                                 <div class="mb-2">
                                     <mat-form-field appearance="fill" for="nombreEdu" style="width: 100%;">
                                         <mat-label>Nombre de la escuela o Institución</mat-label>
-                                        <input matInput type="text" id="nombreEdu" name="nombreEdu" [(ngModel)]="nombreEdu" />
+                                        <input matInput type="text" placeholder="Por ejemplo: Universitat Politècnica de València" id="nombreEdu" name="nombreEdu" [(ngModel)]="nombreEdu" required />
                                     </mat-form-field>                                  
                                 </div>
                             </div>
@@ -39,7 +39,7 @@
                                 <div class="mb-2">
                                     <mat-form-field appearance="fill" for="orientacionEdu" style="width: 100%;">
                                         <mat-label>Facultad u orientación</mat-label>
-                                        <input matInput type="text" name="orientacionEdu" id="orientacionEdu" [(ngModel)]="orientacionEdu" />
+                                        <input matInput placeholder="Indica la orientación" type="text" name="orientacionEdu" id="orientacionEdu" [(ngModel)]="orientacionEdu" />
                                     </mat-form-field>
                                 </div>
                             </div>

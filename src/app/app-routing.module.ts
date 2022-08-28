@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditEduComponent } from './componentes/edit-edu.component';
 import { EditExpLabComponent } from './componentes/edit-exp-lab.component';
 import { EditPersonaComponent } from './componentes/edit-persona.component';
+import { EditProyectoComponent } from './componentes/edit-proyecto.component';
 import { EditSkillComponent } from './componentes/edit-skill.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { MainComponent } from './componentes/main/main.component';
 import { NewEduComponent } from './componentes/new-edu.component';
 import { NewExpLabComponent } from './componentes/new-exp-lab.component';
+import { NewProyectoComponent } from './componentes/new-proyecto.component';
 import { NewSkillComponent } from './componentes/new-skill.component';
 
 const routes: Routes = [
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path:'editedu/:id', component: EditEduComponent, outlet: 'modal'},
   {path:'newskill', component: NewSkillComponent, outlet: 'modal'},
   {path:'editskill/:id', component: EditSkillComponent, outlet: 'modal'},
-  {path:'editperfil/:id', component: EditPersonaComponent, outlet: 'modal'}
+  {path:'editperfil/:id', component: EditPersonaComponent, outlet: 'modal'},
+  {path:'newproj', component: NewProyectoComponent, outlet: 'modal'},
+  {path:'editproj/:id', component: EditProyectoComponent, outlet: 'modal'}
 ];
 
 @NgModule({

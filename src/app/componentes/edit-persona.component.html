@@ -1,58 +1,85 @@
-<div class="modal top fade" tabindex="-1" id="editperfil" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+<div class="modal top fade" tabindex="-1" id="editperfil" aria-hidden="true" data-mdb-backdrop="true"
+    data-mdb-keyboard="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title fuente2">Editar perfil</h5>
-                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close" (click)="closeModal({submitted: true})"></button>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"
+                    (click)="closeModal({submitted: true})"></button>
             </div>
             <form class="fuente3 needs-validation" #f="ngForm" (ngSubmit)="onUpdatePersona()" novalidate>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-sm-6">
-                            <div class="mb-4">
-                                <label class="form-label" for="nombre">Nombre completo:</label>
-                                <input type="text" class="form-control form-control-lg" id="nombre" name="nombre" [(ngModel)]="updatepersona.nombre" required />
+                            <div class="mb-2">
+                                <mat-form-field appearance="fill" for="nombre" style="width: 100%;">
+                                    <mat-label>Nombre completo:</mat-label>
+                                    <input matInput placeholder="Ejemplo: Juan Pérez" type="text" id="nombre"
+                                        name="nombre" [(ngModel)]="updatepersona.nombre" required />
+                                </mat-form-field>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="mb-4">
-                                <label class="form-label" for="apellido">Apellido completo:</label>
-                                <input type="text" id="apellido" name="apellido" class="form-control form-control-lg" [(ngModel)]="updatepersona.apellido" required />
+                            <div class="mb-2">
+                                <mat-form-field appearance="fill" for="apellido" style="width: 100%;">
+                                    <mat-label>Apellido completo:</mat-label>
+                                    <input matInput placeholder="Ejemplo: Juan Pérez" type="text" id="apellido"
+                                        name="apellido" [(ngModel)]="updatepersona.apellido" required />
+                                </mat-form-field>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="mb-4">
-                                <label class="form-label" for="email">Correo electrónico:</label>
-                                <input type="email" class="form-control form-control-lg" id="email" name="email" [(ngModel)]="updatepersona.email" required />
+                            <div class="mb-2">
+                                <mat-form-field appearance="fill" for="email" style="width: 100%;">
+                                    <mat-label>Correo electrónico:</mat-label>
+                                    <input matInput placeholder="Ejemplo: ejemplo@correo.com" type="email" id="email"
+                                        name="email" [(ngModel)]="updatepersona.email" required />
+                                </mat-form-field>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="mb-4">
-                                <label class="form-label" for="edad">Edad actual:</label>
-                                <input type="number" class="form-control form-control-lg" id="edad" name="edad" [(ngModel)]="updatepersona.edad" required />
+                            <div class="mb-2">
+                                <mat-form-field appearance="fill" for="edad" style="width: 100%;">
+                                    <mat-label>Edad actual:</mat-label>
+                                    <input matInput type="number" id="edad" name="edad" [(ngModel)]="updatepersona.edad"
+                                        required />
+                                </mat-form-field>
                             </div>
                         </div>
                     </div>
-                    <div class="mb-4">
-                        <label class="form-label" for="oficio">Oficio:</label>
-                        <input type="text" class="form-control form-control-lg" id="oficio" name="oficio" [(ngModel)]="updatepersona.oficio" required />
+                    <div class="mb-2">
+                        <mat-form-field appearance="fill" for="oficio" style="width: 100%;">
+                            <mat-label>Oficio:</mat-label>
+                            <input matInput type="text" id="oficio" name="oficio" [(ngModel)]="updatepersona.oficio" />
+                        </mat-form-field>
                     </div>
-                    <div class="mb-4">
-                        <label class="form-label" for="descripcion">Descripción: </label>
-                        <textarea class="form-control form-control-lg" id="descripcion" name="descripcion" [(ngModel)]="updatepersona.descripcion" required rows="5"></textarea>
+                    <div class="mb-2">
+                        <mat-form-field appearance="fill" hintLabel="Máximo 255 caracteres" for="descripcion"
+                            style="width: 100%;">
+                            <mat-label>Descripción: </mat-label>
+                            <textarea matInput #desc id="descripcion" name="descripcion"
+                                [(ngModel)]="updatepersona.descripcion" rows="5" maxlength="255"></textarea>
+                            <mat-hint align="end">{{desc.value?.length || 0}}/255</mat-hint>
+                        </mat-form-field>
                     </div>
-                    <div class="mb-4">
-                        <label class="form-label" for="localidad">Localidad actual:</label>
-                        <input type="text" class="form-control form-control-lg" id="localidad" name="localidad" [(ngModel)]="updatepersona.localidad" required />
+                    <div class="mb-2">
+                        <mat-form-field appearance="fill" for="localidad" style="width: 100%;">
+                            <mat-label>Localidad actual:</mat-label>
+                            <input matInput type="text" id="localidad" name="localidad"
+                                [(ngModel)]="updatepersona.localidad" />
+                        </mat-form-field>
                     </div>
-                    <div class="mb-4">
-                        <label class="form-label" for="hobbie">Hobbies:</label>
-                        <input type="text" class="form-control form-control-lg" id="hobbie" name="hobbie" [(ngModel)]="updatepersona.hobbies" required />
+                    <div class="mb-2">
+                        <mat-form-field appearance="fill" for="hobbie" style="width: 100%;">
+                            <mat-label>Hobbies:</mat-label>
+                            <input matInput type="text" id="hobbie" name="hobbie" [(ngModel)]="updatepersona.hobbies" />
+                        </mat-form-field>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Guardar cambios</button>
-                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal" (click)="closeModal({submitted: true})">cancelar</button>
+                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal"
+                        (click)="closeModal({submitted: true})">cancelar</button>
                 </div>
             </form>
         </div>

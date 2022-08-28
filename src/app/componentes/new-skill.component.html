@@ -30,7 +30,7 @@
                             <div class="mb-2">
                                 <mat-form-field appearance="fill" for="nombre" style="width: 100%;">
                                     <mat-label>Nombre de la habilidad</mat-label>
-                                    <input matInput type="text" name="nombre" id="nombre" [(ngModel)]="nombre" />
+                                    <input matInput placeholder="Ejemplo: Dominio de inglés" type="text" name="nombre" id="nombre" [(ngModel)]="nombre" required />
                                 </mat-form-field>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                         </p>
                         <mat-form-field appearance="fill" for="porcentaje" style="width: 100%;">
                             <mat-label>Ícono (opcional)</mat-label>
-                            <input matInput type="text" id="icono" name="icono" [(ngModel)]="icono"/>
+                            <input matInput placeholder="Coloca el código del ícono correspondiente." type="text" id="icono" name="icono" [(ngModel)]="icono"/>
                         </mat-form-field>                       
                     </div>
                 </div>

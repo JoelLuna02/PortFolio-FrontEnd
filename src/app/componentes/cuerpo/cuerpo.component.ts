@@ -8,6 +8,8 @@ import { SeducacionService } from 'src/app/servicio/seducacion.service';
 import { SExperienciaService } from 'src/app/servicio/sexperiencia.service';
 import { SSkillsService } from 'src/app/servicio/sskills.service';
 import { TokenService } from 'src/app/servicio/token.service';
+import { Proyectos } from 'src/app/models/proyectos';
+import { SProyectosService } from 'src/app/servicio/sproyectos.service';
 
 @Component({
   selector: 'app-cuerpo',
@@ -28,12 +30,14 @@ export class CuerpoComponent implements OnInit {
   experiencia: Explaboral[] = [];
   educacion: Educacion[] = [];
   habilidades: HSSkills[] = [];
+  proyectos: Proyectos[] = [];
 
   constructor(private servicio:PersonaService, 
               private tokenserv: TokenService, 
               private sexp: SExperienciaService,
               private sedu: SeducacionService,
-              private sskill: SSkillsService) { }
+              private sskill: SSkillsService,
+              private proj: SProyectosService) { }
 
   ngOnInit(): void {
     if(this.tokenserv.getToken()) {
@@ -53,7 +57,7 @@ export class CuerpoComponent implements OnInit {
     this.sexp.listado().subscribe(data => {this.experiencia = data});
     this.sedu.listado().subscribe(data => {this.educacion = data});
     this.sskill.listado().subscribe(data => {this.habilidades = data});
-    
+    this.proj.listado().subscribe(data => {this.proyectos = data});
   }
   onDelJob(id?: number) {
     if (id != undefined) {
@@ -84,6 +88,17 @@ export class CuerpoComponent implements OnInit {
         this.sskill.listado().subscribe(data => {this.habilidades = data});
       }, err => {
         alert("Ocurrió un error al eliminar habilidad.");
+        window.location.reload();
+      });
+    }
+  }
+  onDelProj(id?: number) {
+    if (id != undefined) {
+      this.proj.delete(id).subscribe(data => {
+        window.location.reload();
+        this.proj.listado().subscribe(data => {this.proyectos = data});
+      }, err => {
+        alert("Ocurrió un error al eliminar proyecto");
         window.location.reload();
       });
     }

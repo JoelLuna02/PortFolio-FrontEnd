@@ -7,7 +7,7 @@
                     Para obtener la edición del portfolio, debes iniciar sesión con una
                     cuenta de administrador.
                 </p> <br>
-                <p class="fuente3">Un mensaje del desarrollador :).</p>
+                <p class="fuente3">Un mensaje del desarrollador :)</p>
             </div>
         </div>
     </section>
@@ -38,7 +38,7 @@
             <img src="../../../assets/img/banner.png" class="card-img-top">
             <div class="card-body">
                 <div class="row justify-content-evenly">
-                    <div class="col-md-4">
+                    <div class="col-sm-4">
                         <div class="card text-center">
                             <img src="../../../assets/img/foto.jpg" class="card-img-top">
                             <div class="card-header">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-lg-8">
                         <h1 class="fuente2">Descripción</h1>
                         <hr>
                         <p class="fuente3">{{ persona.descripcion }}</p>
@@ -65,7 +65,7 @@
                                     <tbody>
                                         <tr>
                                             <th scope="row">Edad</th>
-                                            <td>{{ persona.edad }}</td>
+                                            <td>{{ persona.edad }} Años</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Correo</th>
@@ -95,11 +95,11 @@
     </section>
 
     <div class="row gx-1">
-        <div class="col-lg-6">
+        <div class="col-6">
             <section class="container-xxl" id="experiencia">
                 <div><br>
                     <h1 class="fuente2 text-center">Experiencia Laboral</h1>
-                    <div class="card">
+                    <div class="card mb-3">
                         <div class="card-body">
                             <div *ngFor="let laburos of experiencia">
                                 <div class="row gx-1">
@@ -122,8 +122,7 @@
                                                     <td>{{laburos.descripcionE}}</td>
                                                 </tr>                                       
                                             </tbody>
-                                        </table>
-                                        
+                                        </table>                           
                                         <div class="modal-footer" *ngIf="isLogged && isAuth">
                                             <button mat-mini-fab color="primary" [routerLink]="[{outlets: {modal: 'editjob/'+laburos.id}}]" data-mdb-toggle="modal" data-mdb-target="#edittrabajo"><i class="bi bi-pencil-fill"></i></button>
                                             <button mat-mini-fab color="warn" (click)="onDelJob(laburos.id)"><i class="bi bi-trash-fill"></i></button>
@@ -131,7 +130,10 @@
                                     </div>
                                     <hr>
                                 </div> 
-                            </div>       
+                            </div>
+			    <caption class="fuente3">
+                               En total: {{ experiencia.length }} Trabajos 
+                            </caption>
                             <div class="modal-footer" *ngIf="isLogged && isAuth">
                                 <button mat-raised-button color="primary"  [routerLink]="[{outlets: {modal: 'newjob'}}]"
                                     data-mdb-toggle="modal" data-mdb-target="#nuevotrabajo" *ngIf="isLogged && isAuth">
@@ -144,11 +146,11 @@
             </section>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-6">
             <section class="container-xxl" id="educacion">
                 <div><br>
                     <h1 class="fuente2 text-center">Educación</h1>
-                    <div class="card mb-4">
+                    <div class="card mb-3">
                         <div class="card-body">
                             <div *ngFor="let edu of educacion">
                                 <div class="row gx-1">
@@ -192,7 +194,9 @@
                                     <hr>
                                 </div>
                             </div>
-        
+        		    <caption class="fuente3">
+                               En total: {{ educacion.length }}
+                            </caption>
                             <div class="modal-footer" *ngIf="isLogged && isAuth">
                                 <button mat-raised-button color="primary" [routerLink]="[{outlets: {modal: 'newedu'}}]"
                                     data-mdb-toggle="modal" data-mdb-target="#nuevoedu" *ngIf="isLogged && isAuth">
@@ -243,38 +247,52 @@
             <h1 class="fuente2 text-center">Proyectos</h1>
             <div class="card mb-3">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <img src="https://argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1659143423/APLogo-20-20.png"
-                                alt="" width="100%" style="filter: invert(100%);">
+                    <div *ngFor="let project of proyectos">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <img src={{project.imagen}} alt="" width="100%" style="padding: 20px;">
+                            </div>
+                            <div class="col-lg-8">
+                                <table class="table table-striped table-sm table-hover table-borderless table-light fuente3">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Nombre</th>
+                                            <td>{{project.nombreP}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Fecha de realización</th>
+                                            <td>{{project.fechaP}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Descripción</th>
+                                            <td>{{project.descripcionP}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Link</th>
+                                            <td><a href="https://{{project.linkP}}">{{project.linkP}}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="modal-footer" *ngIf="isLogged && isAuth">
+                                    <button mat-mini-fab color="primary" [routerLink]="[{outlets: {modal: 'editproj/'+project.id}}]" data-mdb-toggle="modal" data-mdb-target="#editproyecto">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </button>
+                                    <button mat-mini-fab color="warn" (click)="onDelProj(project.id)">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <hr>
                         </div>
-                        <div class="col-lg-9">
-                            <table
-                                class="table table-striped table-sm table-hover table-borderless table-light fuente4">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Nombre:</th>
-                                        <td>Proyecto Integrador Portfolio Web Full Stack</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Fecha de realización:</th>
-                                        <td>7 de agosto del 2022</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Descripción:</th>
-                                        <td>
-                                            Proyecto Integrador del curso Argentina Programa, Sección #YoProgramo, en el
-                                            cual tiene
-                                            como objetivo, desarrollar un portfolio web full stack.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Link:</th>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    </div>
+                    <caption>
+                        En total: {{ proyectos.length }} Proyectos
+                    </caption>
+                    <div class="modal-footer">
+                        <button mat-raised-button color="primary" [routerLink]="[{outlets: {modal: 'newproj'}}]"
+                        data-mdb-toggle="modal" data-mdb-target="#nuevoproyecto" *ngIf="isLogged && isAuth">
+                            <i class="bi bi-plus-lg"></i> Doble clic para Añadir
+                        </button>
                     </div>
                 </div>
             </div>

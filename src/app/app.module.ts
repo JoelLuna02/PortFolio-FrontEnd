@@ -24,6 +24,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule }  from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { NewProyectoComponent } from './componentes/new-proyecto.component';
+import { EditProyectoComponent } from './componentes/edit-proyecto.component';
 
 
 @NgModule({
@@ -40,7 +43,9 @@ import { MatSelectModule } from '@angular/material/select';
     EditEduComponent,
     NewSkillComponent,
     EditSkillComponent,
-    EditPersonaComponent
+    EditPersonaComponent,
+    NewProyectoComponent,
+    EditProyectoComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatProgressBarModule,
     MatButtonModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

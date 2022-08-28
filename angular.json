@@ -35,7 +35,7 @@
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/mdb-ui-kit/js/mdb.min.js",
               "node_modules/@fortawesome/fontawesome-free/js/all.js",
-              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/jquery/dist/jquery.min.js"
             ]
           },
           "configurations": {
@@ -43,8 +43,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "6mb"
                 },
                 {
                   "type": "anyComponentStyle",

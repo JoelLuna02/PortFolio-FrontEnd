@@ -30,8 +30,8 @@
                         <div class="mb-2">
                             <mat-form-field appearance="fill" for="nombreE" style="width: 100%;">
                                 <mat-label>Nombre de la Empresa:</mat-label>
-                                <input matInput type="text" id="nombreE" name="nombreE"
-                                [(ngModel)]="nombreE" />
+                                <input matInput placeholder="Indica un nombre. Ejemplo: Google" type="text" id="nombreE" name="nombreE"
+                                [(ngModel)]="nombreE" required />
                             </mat-form-field>          
                         </div>      
                         <div class="mb-2">
@@ -41,9 +41,10 @@
                             </mat-form-field>                  
                         </div>
                         <div class="mb-2">
-                            <mat-form-field appearance="fill" for="descripcionE" style="width: 100%;">
+                            <mat-form-field appearance="fill" hintLabel="Máximo 255 caracteres" for="descripcionE" style="width: 100%;">
                                 <mat-label>Descripción</mat-label>
-                                <textarea matInput id="descripcionE" name="descripcionE" [(ngModel)]="descripcionE" rows="4"></textarea>
+                                <textarea matInput #desc id="descripcionE" name="descripcionE" [(ngModel)]="descripcionE" rows="4" maxlength="255"></textarea>
+                                <mat-hint align="end">{{desc.value?.length || 0}}/255</mat-hint>
                             </mat-form-field>
                         </div>
                         <div class="mb-2">

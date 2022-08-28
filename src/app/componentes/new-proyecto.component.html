@@ -1,0 +1,58 @@
+<div class="modal top fade" tabindex="-1" id="nuevoproyecto" aria-hidden="true" data-mdb-backdrop="true"
+    data-mdb-keyboard="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fuente2">Nuevo Proyecto</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"
+                    (click)="closeModal({submitted: true})"></button>
+            </div>
+            <form class="fuente3 needs-validation" #f="ngForm" (ngSubmit)="onCreate()" novalidate>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mb-2">
+                                <mat-form-field appearance="fill" for="nombre" style="width: 100%;">
+                                    <mat-label>Nombre del proyecto:</mat-label>
+                                    <input matInput placeholder="Pon un nombre a tu proyecto" type="text" id="nombre" name="nombre" [(ngModel)]="nombre" required />
+                                </mat-form-field>
+                            </div>  
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-2">
+                                <mat-form-field appearance="fill" for="fecha" style="width: 100%;">
+                                    <mat-label>Fecha de creación</mat-label>
+                                    <input matInput type="date" id="fecha" name="fecha" [(ngModel)]="fecha" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <mat-form-field appearance="fill" hintLabel="Máximo 255 caracteres" for="descripcion" style="width: 100%;">
+                            <mat-label>Descripción:</mat-label>
+                            <textarea matInput #desc id="descripcion" name="descripcion" [(ngModel)]="descripcion" rows="4" maxlength="255"></textarea>
+                            <mat-hint align="end">{{desc.value?.length || 0}}/255</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="mb-2">
+                        <mat-form-field appearance="fill" for="link" style="width: 100%;">
+                            <mat-label>Link del proyecto (Opcional)</mat-label>
+                            <input matInput type="text" id="link" name="link" [(ngModel)]="link" />
+                        </mat-form-field>
+                    </div>
+                    <div class="mb-2">
+                        <mat-form-field appearance="fill" for="imagen" style="width: 100%;">
+                            <mat-label>Imagen representativa (Opcional)</mat-label>
+                            <input matInput type="url" id="imagen" name="imagen" [(ngModel)]="imagen" />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning fuente3">Crear Proyecto</button>
+                    <button type="button" class="btn btn-danger fuente3" data-mdb-dismiss="modal"
+                        (click)="closeModal({submitted: true})">cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
