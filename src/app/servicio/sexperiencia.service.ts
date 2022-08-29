@@ -7,7 +7,7 @@ import { Explaboral } from '../models/explaboral';
   providedIn: 'root'
 })
 export class SExperienciaService {
-  expurl = 'http://localhost:8080/explab/';
+  expurl = 'https://backendhjl.herokuapp.com/explab/';
   constructor(private httpcliente: HttpClient) { }
 
   public listado(): Observable<Explaboral[]> {

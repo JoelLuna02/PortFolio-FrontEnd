@@ -8,7 +8,7 @@ import { Proyectos } from '../models/proyectos';
 })
 export class SProyectosService {
 
-  projurl = 'http://localhost:8080/projects/';
+  projurl = 'https://backendhjl.herokuapp.com/projects/';
   constructor(private httpclient: HttpClient) { }
 
   public listado(): Observable<Proyectos[]> {

@@ -7,7 +7,7 @@ import { HSSkills } from '../models/hsskills'
   providedIn: 'root'
 })
 export class SSkillsService {
-  urlskills = 'http://localhost:8080/skills/';
+  urlskills = 'https://backendhjl.herokuapp.com/skills/';
   constructor(private httpcli: HttpClient) { }
 
   public listado(): Observable<HSSkills[]> {
