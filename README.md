@@ -1,4 +1,10 @@
 # FrontEnd
+---
+***Aviso de Discontinuidad**: a partir del 31 de enero del 2023 la página web asociada con este proyecto estará cerrada hasta nuevo aviso. Una vez pasada esa fecha, el sitio web ya no podrá ser visible la información contenida en la página. Próximamente a través de este medio se comunicará sobre las distintas novedades.*
+
+`Muchas gracias: un mensaje del creador de este proyecto.`
+
+---
 
 Este proyecto fue desarrollado por el frontend [Angular CLI](https://github.com/angular/angular-cli) versión 14.0.4.
 
